@@ -9,7 +9,7 @@ const fetchAllNotes = async(req, res)=>{
     //--------------------------(2)
 }
 
-const fetchNote = async(req,res)=>{
+const fetchNote = async(req, res)=>{
     //1. Get id off the url
     //2. Find the notes assoc with id
     //3. send response with that note as the payload
@@ -25,7 +25,7 @@ const createNote = async(req,res)=>{
     //1. Get data from req.body
     //2. Create note 
     //3. Respond with new copy of Note
-    console.log(`BODY: ${req.body}`);
+    console.log(`req.body: ${req.body}`);
     const title = req.body.title;
     const body = req.body.body;
 //// const {title, body} = req.body
