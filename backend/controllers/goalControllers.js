@@ -5,11 +5,12 @@ const fetchAllGoals = async (req, res) => {
   const goal = await Goal.find({});
   //2. Send all goals back as response
   res.json({ goals: goal });
+  console.log("fetched all goals");
 };
 
 const fetchGoal = async (req, res) => {
   //1. get id from url
-  const goalId = req.params.id;
+  const goalId = req.params.id;  
   //2.find object associated with id
   const goal = await Goal.findById(goalId);
   //3. send goal in response
