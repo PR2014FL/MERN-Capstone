@@ -6,7 +6,7 @@ const cors = require("cors"); //allows to receive requests on cross-origins
 const ConnectToDb = require("./config/connectToDb"); //This pulls our Mongoose(MongoDB) connection into the application
 const notesRouter = require("./routes/notes");
 const goalsRouter = require("./routes/goals");
-
+const breathsRouter = require("./routes/breaths");
 //Separation of concerns: Models > Controller > Router > Main Server JS file
 // const Note = require("./models/note");  //moved the model and imported to the corresponding controller file
 
@@ -17,6 +17,7 @@ app.use(express.json({ extended: true })); //express doesn't convert to JSON nat
 app.use(express.urlencoded({ extended: true }));
 app.use("/notes", notesRouter);
 app.use("/goals", goalsRouter); // for wellness goal chart page
+app.use("/breaths", breathsRouter);
 
 ConnectToDb(); //This initializes our connectToDb function from the config folder
 
