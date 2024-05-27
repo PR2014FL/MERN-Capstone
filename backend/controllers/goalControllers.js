@@ -2,7 +2,7 @@ const Goal = require("../models/goal");
 
 const fetchAllGoals = async (req, res) => {
   try {
-    //1. Get all goals from mongo
+    //1. Get all goals from mongodb
     const goal = await Goal.find({});
     //2. Send all goals back as response
     res.json({ goals: goal });
