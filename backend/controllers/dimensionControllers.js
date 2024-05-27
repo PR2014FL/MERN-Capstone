@@ -13,4 +13,4 @@ const fetchAllDimensions = async (req, res) => {
   }
 };
 
-module.exports = fetchAllDimensions;
+module.exports = {fetchAllDimensions};
