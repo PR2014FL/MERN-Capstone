@@ -1,25 +1,16 @@
-import React from "react";
-import "../App.css";
 
-export default function Home() {
+import Button from "../components/Button";
+import MainLogo from "../components/MainLogo";
+
+export default function Home({ src, alt }) {
   return (
-    <div>
-      <div class="homeDiv">
-        <img
-          src="../assets/GuruCatLogo.svg"
-          alt="yoga cat guru"
-          height="200px"
-        />
-        <button onClick="sendToBreath()" class="btn2">
-          Breathing Techniques
-        </button>
-        <button onClick="sendToWellnessWheel()" class="btn2">
-          Wellness Goals Chart
-        </button>
-        <button onClick="sendToGuidedMeditation()" class="btn2">
-          Guided Meditation
-        </button>
+    <>
+      <div className="homeDiv">
+        <MainLogo src={src} alt={alt} />
+        <Button to="/breaths" label="Breathing Techniques" />
+        <Button to="/goals" label="Wellness Goal Chart" />
+        <Button to="/meditations" label="Guided Meditation" />
       </div>
-    </div>
+    </>
   );
 }

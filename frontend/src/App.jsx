@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Breaths from "./pages/Breaths";
 import Goals from "./pages/Goals";
 import Meditations from "./pages/Meditations";
+import Logo from './assets/GuruCatLogo.svg'
 
 export default function App() {
   const [goals, setGoals] = useState([]);
@@ -55,8 +56,11 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/breaths" element={<Breaths />} />
+        <Route path="/" element={<Home src={Logo} alt="yoga cat guru" />} />
+        <Route
+          path="/breaths"
+          element={<Breaths src={Logo} alt="yoga cat guru" />}
+        />
         <Route path="/goals" element={<Goals />} />
         <Route path="/meditations" element={<Meditations />} />
       </Routes>
