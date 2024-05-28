@@ -1,8 +1,10 @@
-import React from 'react'
+import React from "react";
+import "../App.css";
 
 export default function Home() {
   return (
-    <div>This is the Home page</div>
-  )
+    <div>
+      <h1>Home </h1>
+    </div>
+  );
 }
-
