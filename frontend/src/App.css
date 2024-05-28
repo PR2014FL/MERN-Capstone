@@ -1,1 +1,62 @@
+:root {
+  --orange: #ff6600;
+  --seoul: #851291;
+}
+
+
+@-webkit-keyframes levitate {  /* @-webkit-keyframes rule for Apple and older browsers */
+0% {
+  transform: translateY(0);
+}
+100% {
+  transform: translateY(-30px);
+}
+}
+
+@keyframes levitate {
+0% {
+  transform: translateY(0); /* Starting point */
+}
+100% {
+  transform: translateY(-30px); /* goes 30 pixels down from starting point */
+}
+}
+
+body {
+  background-image: url('./assets/forestBackground.png');
+  background-size: cover;
+}
+
+img { /*LOGO Image*/
+  /* border: solid white; */
+-webkit-animation: levitate 2s 10 alternate; /* webkit shorthand for levitate variable*/
+animation: levitate 2s 10 alternate; /* shorthand for levitate variable*/
+}
+.homeDiv  {
+/* border: solid red; */
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap:20px;
+}
+
+.btn2 {
+  background-color: var(--orange);
+  border-color:var(--orange);
+  width: 200px;
+  height: 50px;
+  border-radius:8px;
+  font-size: 12pt;
+  font-family: cursive;
+}
+.btn2:hover {
+  background-color: var(--seoul);
+  border-color:var(--seoul);
+  color:white;
+  width: 200px;
+  height: 50px;
+  border-radius:8px;
+}
 
