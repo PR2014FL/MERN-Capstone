@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const dimensionSchema = new mongoose.Schema({
-    dimension: String,
-    description: String
+  dimension: String,
+  description: String,
 });
 
 const Dimension = mongoose.model("Dimension", dimensionSchema);
