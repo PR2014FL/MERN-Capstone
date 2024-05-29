@@ -61,7 +61,7 @@ export default function App() {
           path="/breaths"
           element={<Breaths src={Logo} alt="yoga cat guru" />}
         />
-        <Route path="/goals" element={<Goals src={Logo} alt="yoga cat guru"/>} />
+        <Route path="/goals" element={<Goals src={Logo} alt="yoga cat guru" dimensions={dimensions} goals={goals} setGoals={setGoals}/>} />
         <Route path="/meditations" element={<Meditations src={Logo} alt="yoga cat guru"/>} />
       </Routes>
     </>
