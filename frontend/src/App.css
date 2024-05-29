@@ -1,6 +1,18 @@
 :root {
   --orange: #ff6600;
+  --light_salmon: #fea671;
+  --carolina_blue: #5daad8;
+  --ube: #8187c7;
   --seoul: #851291;
+  --raisin_black: #231f23;
+  --granny_smith_apple: #a5de94;
+  --lavender_mist: #dacae5;
+  --orchid: #da70d6;
+  --medium_spring_bud: #d7e586;
+  --coral_reef: #fb8066;
+  --topaz: #fec979;
+  --crayola_yellow: #feea80;
+  --cultured: #f8f8f8;
 }
 
 @-webkit-keyframes levitate {
@@ -22,9 +34,8 @@
   }
 }
 
-
-img {
-  /*LOGO Image*/
+.logo {
+  height: 200px;
   /* border: solid white; */
   -webkit-animation: levitate 2s 10 alternate; /* webkit shorthand for levitate variable*/
   animation: levitate 2s 10 alternate; /* shorthand for levitate variable*/
@@ -58,4 +69,66 @@ img {
   width: 200px;
   height: 50px;
   border-radius: 8px;
+}
+
+.nav {
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 8px;
+  height: 14vh;
+  width: 99%;
+  display: flex;
+  margin: 5px;
+  margin-top: 0px;
+  justify-content: space-between;
+  /* margin: 5px; */
+  /* border: 1px solid black; */
+}
+h1 {
+  color: var(--orange);
+  text-shadow: 3px 3px var(--raisin_black);
+  font-size: 4vw;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  align-self: center;
+}
+.homeBtnLogo {
+  height: 100%;
+  align-self: center;
+  /* margin: 1em; */
+  /* border: solid black; */
+}
+.homeBtnLogo:hover {
+  cursor: pointer;
+}
+.body {
+  background-color: var(--lavender_mist);
+  height: 100vh;
+  width: 100vw;
+  /* border: 5px solid green; */
+}
+.navLogoAndTitleDiv {
+  /* border: solid black; */
+  display:flex;
+}
+.navBarLinksDiv {
+  /* border: solid black; */
+  display:flex;
+  gap: 25px;
+ align-items: center;
+ color: var(--orange);
+ padding-right: 50px;
+
+}
+
+.videoDiv {
+display:flex;
+justify-content: center;
+
+}
+
+.video {
+height: 315px;
+  width: 560px;
+  scale: 1.3;
+  margin-top: 100px;
+  box-shadow: 9px 9px 38px 3px rgba(0,0,0,0.45);
 }
