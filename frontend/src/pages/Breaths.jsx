@@ -1,6 +1,6 @@
 import NavBar from "../components/NavBar";
 
-export default function Breaths({ src, alt }) {
+export default function Breaths({ src, alt, breaths }) {
   return (
     <>
       <div className="body">

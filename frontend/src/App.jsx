@@ -5,12 +5,23 @@ import Home from "./pages/Home";
 import Breaths from "./pages/Breaths";
 import Goals from "./pages/Goals";
 import Meditations from "./pages/Meditations";
-import Logo from './assets/GuruCatLogo.svg'
+import Logo from "./assets/GuruCatLogo.svg";
 
 export default function App() {
   const [goals, setGoals] = useState([]);
   const [dimensions, setDimensions] = useState([]);
   const [breaths, setBreaths] = useState([]);
+  const [createForm, setCreateForm] = useState({
+    title: "",
+    dimension: "Social",
+    body: "",
+  });
+  const [updateForm, setUpdateForm] = useState({
+    _id: null,
+    title: "",
+    dimension: "",
+    body: "",
+  });
 
   useEffect(() => {
     async function getGoals() {
@@ -59,10 +70,28 @@ export default function App() {
         <Route path="/" element={<Home src={Logo} alt="yoga cat guru" />} />
         <Route
           path="/breaths"
-          element={<Breaths src={Logo} alt="yoga cat guru" />}
+          element={<Breaths src={Logo} alt="yoga cat guru" breaths={breaths} />}
         />
-        <Route path="/goals" element={<Goals src={Logo} alt="yoga cat guru" dimensions={dimensions} goals={goals} setGoals={setGoals}/>} />
-        <Route path="/meditations" element={<Meditations src={Logo} alt="yoga cat guru"/>} />
+        <Route
+          path="/goals"
+          element={
+            <Goals
+              src={Logo}
+              alt="yoga cat guru"
+              dimensions={dimensions}
+              goals={goals}
+              setGoals={setGoals}
+              createForm={createForm}
+              setCreateForm={setCreateForm}
+              updateForm={updateForm}
+              setUpdateForm={setUpdateForm}
+            />
+          }
+        />
+        <Route
+          path="/meditations"
+          element={<Meditations src={Logo} alt="yoga cat guru" />}
+        />
       </Routes>
     </>
   );
