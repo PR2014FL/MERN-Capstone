@@ -101,7 +101,8 @@ h1 {
 }
 .body {
   background-color: var(--lavender_mist);
-  /* height: 300vh; */
+  height: 500vh;
+  /* Something is going on with this! I can't get this to be rsponsive with the content */
   width: 100vw;
   /* border: 5px solid green; */
 }
