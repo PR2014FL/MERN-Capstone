@@ -267,6 +267,7 @@ span {
   font-family: cursive;
   align-self: center;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 .goalNote {

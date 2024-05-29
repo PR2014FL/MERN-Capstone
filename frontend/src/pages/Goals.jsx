@@ -38,7 +38,53 @@ export default function Goals({
     }));
   };
   //----------------------------------[CREATE]
+  const handleUpdateFormField = (event) => {
+    //1. destructure the event target
+    const { name, value } = event.target;
+    console.log({ name, value });
+    //2. set state updateForm
+    setUpdateForm(() => ({
+      ...updateForm,
+      [name]: value,
+    }));
+  };
 
+  const updateGoal = async (event) => {
+    event.preventDefault();
+    const { title, dimension, body, _id } = updateForm;
+    const res = await axios.put(`http://localhost:3000/goals/${_id}`, {
+      title,
+      dimension,
+      body,
+    });
+    console.log(res);
+    //Update State
+    const newGoals = [...goals];
+    const goalIndex = goals.findIndex((goal) => {
+      return goal._id === updateForm._id;
+      //finds goal by index and sees if they match
+    });
+    newGoals[goalIndex] = res.data.goals;
+    setGoals(newGoals);
+
+    //clear form
+    setUpdateForm(() => ({
+      _id: null,
+      title: "",
+      dimension: "",
+      body: "",
+    }));
+  };
+
+  const toggleUpdate = (goal) => {
+    console.log("CurrentNote: ", goal);
+    setUpdateForm({
+      _id: goal._id,
+      title: goal.title,
+      dimension: goal.dimension,
+      body: goal.body,
+    });
+  };
   //----------------------------------[UPDATE]
   const deleteGoal = (_id) => {
     //!.find Goal
@@ -119,13 +165,60 @@ export default function Goals({
                 </div>
               </div>
             </form>
+            {updateForm._id && (
+              <>
+                <form onSubmit={updateGoal}>
+                  <div className="upperGoalSection">
+                    <div className="first3rd">
+                      <h2>
+                        <span>&#43;</span> Edit Goal
+                      </h2>
+                      <input
+                        className="goalInput"
+                        type="text"
+                        name="title"
+                        value={updateForm.title}
+                        placeholder="Goal Title.."
+                        onChange={handleUpdateFormField}
+                      />
+                      <br></br>
+                      <p>Choose Dimension:</p>
+                      <select name="dimension" onChange={handleUpdateFormField}>
+                        <option value="Social">Social</option>
+                        <option value="Occupational">Occupational</option>
+                        <option value="Environmental">Environmental</option>
+                        <option value="Intellectual">Intellectual</option>
+                        <option value="Spiritual">Spiritual</option>
+                        <option value="Emotional">Emotional</option>
+                        <option value="Physical">Physical</option>
+                        <option value="Financial">Financial</option>
+                      </select>
+                    </div>
+                    <div className="textAndSubmit">
+                      <textarea
+                        name="body"
+                        value={updateForm.body}
+                        onChange={handleUpdateFormField}
+                        id="goalBody"
+                        cols="50"
+                        rows="8"
+                        placeholder="What can you do right now to improve your overall satisfaction in this dimension?"
+                        maxLength="185"
+                      ></textarea>
+                      <input className="submitBtn" type="Submit"></input>
+                    </div>
+                  </div>
+                </form>
+              </>
+            )}
+
             {goals.map((goal) => {
               // console.log(goal);
               if (goal) {
                 const { title, dimension, body, _id } = goal;
                 const lowerDim = dimension.toLowerCase();
                 return (
-                  <div className="lowerGoalSection" id={lowerDim}>
+                  <div key={_id} className="lowerGoalSection" id={lowerDim}>
                     <div className="goalNote">
                       <div className="noteTitle">
                         <p>{dimension} Dimension</p>
@@ -133,7 +226,14 @@ export default function Goals({
                       </div>
                       <div className="noteBody">{body}</div>
                       <div className="btnDiv">
-                        <button className="noteBtn">Edit</button>
+                        <button
+                          className="noteBtn"
+                          onClick={() => {
+                            toggleUpdate(goal);
+                          }}
+                        >
+                          Edit
+                        </button>
                         <button
                           className="noteBtn"
                           onClick={() => {
