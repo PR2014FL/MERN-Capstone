@@ -42,7 +42,7 @@ export default function Goals({
   //----------------------------------[UPDATE]
   const deleteGoal = (_id) => {
     //!.find Goal
-    const res = axios.delete(`http://localhost:3000/${_id}`);
+    const res = axios.delete(`http://localhost:3000/goals/${_id}`);
     //2. Update
     const newGoals = [...goals].filter((goal) => {
       return goal._id !== _id;
@@ -122,7 +122,7 @@ export default function Goals({
             {goals.map((goal) => {
               // console.log(goal);
               if (goal) {
-                const { title, dimension, body } = goal;
+                const { title, dimension, body, _id } = goal;
                 const lowerDim = dimension.toLowerCase();
                 return (
                   <div className="lowerGoalSection" id={lowerDim}>
@@ -134,7 +134,14 @@ export default function Goals({
                       <div className="noteBody">{body}</div>
                       <div className="btnDiv">
                         <button className="noteBtn">Edit</button>
-                        <button className="noteBtn" onClick={deleteGoal(goal)}>Delete</button>
+                        <button
+                          className="noteBtn"
+                          onClick={() => {
+                            deleteGoal(_id);
+                          }}
+                        >
+                          Delete
+                        </button>
                       </div>
                     </div>
                   </div>
