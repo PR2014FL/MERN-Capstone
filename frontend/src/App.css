@@ -138,6 +138,7 @@ h1 {
 .leftSide {
   width: 25vw;
   /* border: solid red; */
+  margin-left:20px;
   display: flex;
   flex-direction: column;
   align-items: center;

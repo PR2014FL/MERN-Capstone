@@ -2,6 +2,8 @@
 
 The objective of this project was to build a full stack application using MongoDB, Express, React, and Node, MERNstack for short. We were given creative liberty for everything else. I chose to create an application based on wellness. This application focuses on a couple of aspects of wellness. It goes over breathing techniques, meditation, and wellness goals to plan out your journey to a better you. 
 
+![Video of capstone website](./Readme-Assets/Capstone%20Project.mp4)
+
 ## Planning Stage
 
 I decided to plan with tools I was most familiar with: Microsoft Excel! 
